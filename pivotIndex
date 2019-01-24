@@ -1,0 +1,32 @@
+package practice04;
+
+public class pivot {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		int[] nums = { 9 };
+		System.out.println(pivotIndex(nums));
+	}
+
+	public static int pivotIndex(int[] nums) {
+		for (int i = 0; i < nums.length; i++) {
+			int leftSum = 0;
+			if (i > 0) {
+				for (int left = 0; left < i; left++) {
+					leftSum += nums[left];
+				}
+			}
+			int rightSum = 0;
+			if (i < nums.length - 1) {
+				for (int right = i + 1; right < nums.length; right++) {
+					rightSum += nums[right];
+				}
+			}
+
+			if (leftSum == rightSum) {
+				return i;
+			}
+		}
+		return -1;
+	}
+}
